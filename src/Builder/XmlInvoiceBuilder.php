@@ -2,10 +2,13 @@
 
 namespace Bfgasparin\NFeEasy\Builder;
 
+use DOMElement;
 use Lightools\Xml\XmlLoader;
+use Bfgasparin\NFeEasy\Address;
+use Bfgasparin\NFeEasy\Emitter;
 use Bfgasparin\NFeEasy\Invoice;
 use Bfgasparin\NFeEasy\Product;
-use DOMElement;
+use Bfgasparin\NFeEasy\Receiver;
 
 class XmlInvoiceBuilder implements InvoiceBuilder
 {
@@ -31,6 +34,10 @@ class XmlInvoiceBuilder implements InvoiceBuilder
 
         // Add the Invoice products
         $invoice->additionalInfo = $this->extractAdditionalInfo($rootNode);
+
+        // Add the Emitter and Receiver
+        $invoice->emitter = $this->extractEmitter($rootNode);
+        $invoice->receiver = $this->extractReceiver($rootNode);
 
         return $invoice;
     }
@@ -68,6 +75,32 @@ class XmlInvoiceBuilder implements InvoiceBuilder
             ->getElementsByTagName('infCpl')[0]
             ->nodeValue
         ;
+    }
+
+    protected function extractEmitter(DOMElement $element) : Emitter
+    {
+        $emitter = Emitter::create(
+            $this->extractNodeElement('emit', $element)
+        );
+
+        $emitter->address = Address::create(
+            $this->extractNodeElement('enderEmit', $element)
+        );
+
+        return $emitter;
+    }
+
+    protected function extractReceiver(DOMElement $element) : Receiver
+    {
+        $receiver = Receiver::create(
+            $this->extractNodeElement('dest', $element)
+        );
+
+        $receiver->address = Address::create(
+            $this->extractNodeElement('enderDest', $element)
+        );
+
+        return $receiver;
     }
 
     protected function extractNodeElement(string $tagName, DOMElement $element) : array

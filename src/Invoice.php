@@ -15,6 +15,7 @@ class Invoice extends Object
         'cMunFG', 'tpImp', 'tpEmis', 'cDV', 'tpAmb',
         'finNFe', 'indFinal', 'indPres', 'procEmi',
         'verProc', 'products', 'additionalInfo',
+        'emitter', 'receiver',
     ];
 
     protected $collections = [
