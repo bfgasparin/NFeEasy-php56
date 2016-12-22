@@ -3,15 +3,18 @@
 namespace Bfgasparin\NFeEasy;
 
 use ArrayAccess;
-use DOMNode;
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Arrayable;
+
 /**
-* Represents an NFe object
-*/
+ * Represents an NFe object.
+ */
 abstract class Object implements Arrayable, Jsonable, ArrayAccess
 {
     protected $fields = [];
+
+    protected $collections = [];
 
     /**
      * The object's attributes.
@@ -23,28 +26,27 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     public function __construct(array $attributes = [])
     {
         foreach ($attributes as $key => $value) {
-            if(false !== array_search($key, $this->fields)) {
+            if (false !== array_search($key, $this->fields)) {
                 $this->attributes[$key] = $value;
             }
         }
     }
-
 
     public static function create(array $attributes = [])
     {
         return new static($attributes);
     }
 
-
     /**
      * Get an attribute from the object.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function getAttribute($key)
     {
-        if (! $key) {
+        if (!$key) {
             return;
         }
         if (array_key_exists($key, $this->attributes)) {
@@ -75,7 +77,8 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Convert the object instance to JSON.
      *
-     * @param  int  $options
+     * @param int $options
+     *
      * @return string
      */
     public function toJson($options = 0)
@@ -86,7 +89,8 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Dynamically retrieve attributes on the object.
      *
-     * @param  string  $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function __get($key)
@@ -97,19 +101,34 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Dynamically set attributes on the object.
      *
-     * @param  string  $key
-     * @param  mixed  $value
-     * @return void
+     * @param string $key
+     * @param mixed  $value
      */
     public function __set($key, $value)
     {
+        /*
+         * In case of the attribute is an array, we inject the desired value
+         * into a Collection instance
+         */
+        if (false !== array_search($key, $this->collections)) {
+            $newValue = $value instanceof Collection ?
+                $value :
+                new Collection(is_array($value) ? $value : [$value])
+            ;
+
+            $this->attributes[$key] = $newValue;
+
+            return;
+        }
+
         $this->attributes[$key] = $value;
     }
 
-   /**
+    /**
      * Determine if an item exists at an offset.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return bool
      */
     public function offsetExists($key)
@@ -120,7 +139,8 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Get an item at a given offset.
      *
-     * @param  mixed  $key
+     * @param mixed $key
+     *
      * @return mixed
      */
     public function offsetGet($key)
@@ -131,9 +151,8 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Set the item at a given offset.
      *
-     * @param  mixed  $key
-     * @param  mixed  $value
-     * @return void
+     * @param mixed $key
+     * @param mixed $value
      */
     public function offsetSet($key, $value)
     {
@@ -147,8 +166,7 @@ abstract class Object implements Arrayable, Jsonable, ArrayAccess
     /**
      * Unset the value for a given offset.
      *
-     * @param  mixed  $offset
-     * @return void
+     * @param mixed $offset
      */
     public function offsetUnset($offset)
     {

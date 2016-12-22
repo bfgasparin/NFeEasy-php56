@@ -7,9 +7,6 @@ use Bfgasparin\NFeEasy\Invoice;
 use Bfgasparin\NFeEasy\Product;
 use DOMElement;
 
-/**
-*
-*/
 class XmlInvoiceBuilder implements InvoiceBuilder
 {
     private $loader;
@@ -30,11 +27,10 @@ class XmlInvoiceBuilder implements InvoiceBuilder
         );
 
         // Add the Invoice products
-        foreach ($rootNode->getElementsByTagName('det') as $det) {
-            $invoice->products[] = Product::create(
-                $this->extractNodeElement('prod', $det)
-            );
-        };
+        $invoice->products = $this->extractProducts($rootNode);
+
+        // Add the Invoice products
+        $invoice->additionalInfo = $this->extractAdditionalInfo($rootNode);
 
         return $invoice;
     }
@@ -53,6 +49,27 @@ class XmlInvoiceBuilder implements InvoiceBuilder
             ->getElementsByTagName('infNFe')[0]
         ;
     }
+
+    protected function extractProducts(DOMElement $element) : array
+    {
+        $products = [];
+        foreach ($element->getElementsByTagName('det') as $det) {
+            $products[] = Product::create(
+                $this->extractNodeElement('prod', $det)
+            );
+        }
+
+        return $products;
+    }
+
+    protected function extractAdditionalInfo(DOMElement $element) : string
+    {
+        return $element->getElementsByTagName('infAdic')[0]
+            ->getElementsByTagName('infCpl')[0]
+            ->nodeValue
+        ;
+    }
+
     protected function extractNodeElement(string $tagName, DOMElement $element) : array
     {
         return collect($element->getElementsByTagName($tagName)[0]->childNodes)
@@ -61,6 +78,5 @@ class XmlInvoiceBuilder implements InvoiceBuilder
             })
             ->toArray()
         ;
-
     }
 }
