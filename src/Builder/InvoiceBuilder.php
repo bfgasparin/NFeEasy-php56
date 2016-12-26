@@ -1,8 +1,8 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
-use Bfgasparin\NFeEasy\Invoice;
+use NFeEasy\Invoice;
 
 interface InvoiceBuilder
 {

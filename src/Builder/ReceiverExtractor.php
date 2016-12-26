@@ -1,10 +1,10 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
 use DOMElement;
-use Bfgasparin\NFeEasy\Address;
-use Bfgasparin\NFeEasy\Receiver;
+use NFeEasy\Address;
+use NFeEasy\Receiver;
 
 trait ReceiverExtractor
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bfgasparin\NFeEasy;
+namespace NFeEasy;
 
 use ArrayAccess;
 use Illuminate\Support\Collection;

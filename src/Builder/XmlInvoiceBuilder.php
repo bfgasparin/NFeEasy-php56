@@ -1,12 +1,12 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
 use DOMElement;
 use Lightools\Xml\XmlLoader;
-use Bfgasparin\NFeEasy\Emitter;
-use Bfgasparin\NFeEasy\Invoice;
-use Bfgasparin\NFeEasy\Receiver;
+use NFeEasy\Emitter;
+use NFeEasy\Invoice;
+use NFeEasy\Receiver;
 
 class XmlInvoiceBuilder implements InvoiceBuilder
 {

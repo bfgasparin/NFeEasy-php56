@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bfgasparin\\NFeEasy\\": "src/"
+            "NFeEasy\\": "src/"
         }
     },
     "autoload-dev": {

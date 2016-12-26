@@ -1,10 +1,10 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
 use DOMElement;
-use Bfgasparin\NFeEasy\Address;
-use Bfgasparin\NFeEasy\Emitter;
+use NFeEasy\Address;
+use NFeEasy\Emitter;
 
 trait EmitterExtractor
 {

@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Bfgasparin\NFeEasy\Invoice;
+use NFeEasy\Invoice;
 
 class InvoiceTest extends TestCase
 {

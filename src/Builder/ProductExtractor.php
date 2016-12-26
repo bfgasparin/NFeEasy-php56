@@ -1,9 +1,9 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
 use DOMElement;
-use Bfgasparin\NFeEasy\Product;
+use NFeEasy\Product;
 
 trait ProductExtractor
 {

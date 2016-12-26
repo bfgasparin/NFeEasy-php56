@@ -1,6 +1,6 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Loader;
+namespace NFeEasy\Loader;
 
 use Lightools\Xml\XmlLoader as BaseXmlLoader;
 

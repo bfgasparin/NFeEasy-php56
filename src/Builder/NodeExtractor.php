@@ -1,6 +1,6 @@
 <?php
 
-namespace Bfgasparin\NFeEasy\Builder;
+namespace NFeEasy\Builder;
 
 use DOMElement;
 

@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Bfgasparin\NFeEasy\Builder\XmlInvoiceBuilder;
+use NFeEasy\Builder\XmlInvoiceBuilder;
 
 class XmlInvoiceBuilderTest extends TestCase
 {
