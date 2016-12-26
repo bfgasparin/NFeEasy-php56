@@ -6,7 +6,7 @@ use DOMElement;
 
 trait NodeExtractor
 {
-    protected function extractNodeElement(string $tagName, DOMElement $element) : array
+    protected function extractNodeElement($tagName, DOMElement $element)
     {
         return collect($element->getElementsByTagName($tagName)[0]->childNodes)
             ->mapWithKeys(function ($node) {

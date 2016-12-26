@@ -21,7 +21,7 @@ class XmlInvoiceBuilder implements InvoiceBuilder
         $this->loader = $loader;
     }
 
-    public function build(string $content) : Invoice
+    public function build($content)
     {
         // Load DOMNodes from XML string
         $rootNode = $this->loadXml($content);
@@ -44,14 +44,14 @@ class XmlInvoiceBuilder implements InvoiceBuilder
         return $invoice;
     }
 
-    public static function create(string $content) : Invoice
+    public static function create($content)
     {
         $instance = new static(new XmlLoader());
 
         return $instance->build($content);
     }
 
-    protected function loadXml(string $content) : DOMElement
+    protected function loadXml($content)
     {
         return $this->loader->loadXml($content)
             ->getElementsByTagName('NFe')[0]

@@ -30,5 +30,5 @@ interface InvoiceBuilder
         'products' => '',
     ];
 
-    public function build(string $content) : Invoice;
+    public function build($content);
 }

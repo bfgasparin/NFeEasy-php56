@@ -8,7 +8,7 @@ use NFeEasy\Emitter;
 
 trait EmitterExtractor
 {
-    protected function extractEmitter(DOMElement $element) : Emitter
+    protected function extractEmitter(DOMElement $element)
     {
         $emitter = Emitter::create(
             $this->extractNodeElement('emit', $element)

@@ -7,7 +7,7 @@ use NFeEasy\Product;
 
 trait ProductExtractor
 {
-    protected function extractProducts(DOMElement $element) : array
+    protected function extractProducts(DOMElement $element)
     {
         $products = [];
         foreach ($element->getElementsByTagName('det') as $det) {

@@ -8,7 +8,7 @@ use NFeEasy\Receiver;
 
 trait ReceiverExtractor
 {
-    protected function extractReceiver(DOMElement $element) : Receiver
+    protected function extractReceiver(DOMElement $element)
     {
         $receiver = Receiver::create(
             $this->extractNodeElement('dest', $element)
