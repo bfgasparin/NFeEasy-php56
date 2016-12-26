@@ -309,3 +309,8 @@ NfeEasy uses [PHPUnit](https://phpunit.de) unit tests for better reliablility an
 To run all tests, justs go to the project folder and type:
 
     $ phpunit
+
+
+##License
+
+NfeEasy is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
