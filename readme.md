@@ -226,7 +226,7 @@ $invoice = Invoice::create([
 
 ## Attributes
 
-After a Domain Object is created, you can access its date by access the attributes by its names:
+After a Domain Object is created, you can access the data by access attributes by its names:
 
 ```php
 $product = Product::create([
