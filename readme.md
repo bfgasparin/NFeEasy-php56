@@ -46,27 +46,36 @@ XmlInvoiceBuilder::::create(
 
 ## Domain Objects
 
-Each Domain from NFe is represented by a object class into NFeEasy.
+Each Domain from NFe is represented by a object class.
 
-The list of Domains;
-    - `NFeEasy\Builder\Invoice`
-    - `NFeEasy\Builder\Product`
-    - `NFeEasy\Builder\Emitter`
-    - `NFeEasy\Builder\Receiver`
-    - `NFeEasy\Builder\Address`
+The list of Domains Object Classes includes:
 
-The full `NFe` is represented by a relation of one or more domain objects.
-For a full NfeEasy reprentation from a NFe file, use the
-`NFeEasy\Builder\XmlInvoiceBuilder`
+* `NFeEasy\Builder\Invoice`
+* `NFeEasy\Builder\Product`
+* `NFeEasy\Builder\Emitter`
+* `NFeEasy\Builder\Receiver`
+* `NFeEasy\Builder\Address`
 
-The main domain object is the `NFeEasy\Invoice`.
+The full `NFe` file representation is a relation of one or more domain objects.
+For a full NfeEasy reprentation, use the
+`NFeEasy\Builder\XmlInvoiceBuilder::create` method. It willreturn an `NFeEasy\Invoice`.
 
-The classes contain all identification data for the Nfe and related domain objects.
+The Domain Object Classes contain all data from the extracted NFe file.
+The data is diviled between the Domain Object Classes.
+
+
+
+
+
+### Invoice
+
+The `NFeEasy\Invoice` represents the NFe file itself, and contains 
+data to indentity the NFe. 
+
+All other Domain Object Classes resides below `Invoice` Object.
 
 The table bellow describes all attributes you can access from
 `NFeEasy\Invoice` class:
-
-### Invoice
 
 Attribute        | Type                 | Description
 ---------------- | -------------------- | ------------
@@ -90,15 +99,15 @@ Attribute        | Type                 | Description
 `indPres`        | string               |
 `procEmi`        | string               |
 `verProc`        | string               | Version
-`products`       | Collection(Product)  | A list of products for the Invoice
+`products`       | Collection(Product)  | A list of `Product` for this Invoice
 `additionalInfo` | string               | Addicional Information
-`emitter`        | Emitter              | The Invoice Emitter
-`receiver`       | Receiver             | The Invoice Receiver
+`emitter`        | Emitter              | The Invoice `Emitter`
+`receiver`       | Receiver             | The Invoice `Receiver`
 
 
 ### Product
 
-`NFeEasy\Product` represents a product into the Invoice.
+`NFeEasy\Product` represents an Invoice`s product.
 It contains informations like the name of the product, the NCM, the value, the quantity the taxes, and other product related things.
 
 The table bellow describes all attributes you can access from
