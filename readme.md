@@ -192,7 +192,8 @@ $address = Address::create([
 
 If you dont't want to create the domain objects individually, you can 
 pass all data directy to the `NfeEasy\Invoice`:
-```
+
+```php
 $invoice = Invoice::create([
     'cUF' => '32',
     'natOp' => 'Venda Sub / Venda Mer',
@@ -261,17 +262,21 @@ Array of Domain Objects are treated as Collections into NfeEasy. All Object Coll
 
 Collections in NfeEasy are used for:
 
-    * `products` attribute into `Invoice` Object 
+* `products` attribute into `Invoice` Object 
 
 For example, to return the collection of products from an Invoice, use:
 
-    $products $invoice->products;  // Return an instance of `Illuminate\Support\Collection`.
+```php
+$products $invoice->products;  // Return an instance of `Illuminate\Support\Collection`.
+```
 
 To filter products with value greater than 20, use:
 
-    $products = $invoice->products->filter(function ($product, $key){
-        return $product->vProd > 20;
-    });
+```php
+$products = $invoice->products->filter(function ($product, $key){
+    return $product->vProd > 20;
+});
+```
 
 For all `Illuminate\Support\Collection` available methods, see [Illuminate Collection Docs](https://laravel.com/docs/5.3/collections#method-filter).
 
