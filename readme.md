@@ -46,25 +46,25 @@ XmlInvoiceBuilder::::create(
 
 ## Domain Objects
 
-Each Domain from NFe is represented by a object class.
+Each Domain from NFe file is represented by an NFeEasy object class. These
+classes are called **Domain Object Classes**.
 
 The list of Domains Object Classes includes:
 
-* `NFeEasy\Builder\Invoice`
-* `NFeEasy\Builder\Product`
-* `NFeEasy\Builder\Emitter`
-* `NFeEasy\Builder\Receiver`
-* `NFeEasy\Builder\Address`
+* `NFeEasy\Invoice`
+* `NFeEasy\Product`
+* `NFeEasy\Emitter`
+* `NFeEasy\Receiver`
+* `NFeEasy\Address`
 
-The full `NFe` file representation is a relation of one or more domain objects.
+A full `NFe` file is represented by a relationship between one or more **NFeEasy Domain Objects Classes**.
+
+The NFeEasy Domain Object Classes contain the data extracted from the NFe file.
+The data is diviled between the NfeEasy Domain Object Classes.
+
 For a full NfeEasy reprentation, use the
-`NFeEasy\Builder\XmlInvoiceBuilder::create` method. It willreturn an `NFeEasy\Invoice`.
-
-The Domain Object Classes contain all data from the extracted NFe file.
-The data is diviled between the Domain Object Classes.
-
-
-
+`NFeEasy\Builder\XmlInvoiceBuilder::create` method. 
+It will return an `NFeEasy\Invoice` instance.
 
 
 ### Invoice
