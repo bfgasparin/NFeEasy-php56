@@ -1,5 +1,5 @@
 {
-    "name": "bfgasparin/nfe-easy",
+    "name": "nfe-easy/nfe-easy",
     "description": "Easy package to manage NFe resources",
     "require": {
         "lightools/xml": "^1.0",

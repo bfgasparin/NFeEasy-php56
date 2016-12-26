@@ -14,7 +14,7 @@ NFeEasy is a wrapper to manage NFe files.
 
 You and install via composer:
 
-    $ composer require bfgasparin/nfeasy
+    $ composer require nfe-easy/nfe-easy
 
 and use composer autoload:
 
