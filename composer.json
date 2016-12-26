@@ -1,6 +1,7 @@
 {
     "name": "nfe-easy/nfe-easy",
     "description": "Easy package to manage NFe resources",
+    "license": "MIT",
     "require": {
         "lightools/xml": "^1.0",
         "illuminate/support": "^5.3"
