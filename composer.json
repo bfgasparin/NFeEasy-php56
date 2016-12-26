@@ -1,6 +1,6 @@
 {
     "name": "nfe-easy/nfe-easy-php56",
-    "description": "Fork Easy package to manage NFe resources",
+    "description": "NfeEasy Fork to manage NFe resources on php 5.6",
     "license": "MIT",
     "require": {
         "php": ">=5.6.0",
