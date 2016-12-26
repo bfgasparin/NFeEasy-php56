@@ -18,13 +18,17 @@ You and install via composer:
 
 and use composer autoload:
 
-    require_once('vendor/autoload.php');
+```php
+require_once('vendor/autoload.php');
+```
 
 ### Manual Instalation
 
 If you don't want to use Composer, download the latest version of NefEasy and include the `init.php` file:
 
-    require_once('/path/to/nfeasy/init.php');
+```php
+require_once('/path/to/nfeasy/init.php');
+```
 
 You will also need to dowload the NfeEasy php dependencies and autoload then 
 manually. See `composer.json` to see NfeEasy dependencies. 
@@ -34,12 +38,11 @@ manually. See `composer.json` to see NfeEasy dependencies.
 To use the NfeEasy, just pass the xml nfe file content to the XmlInvoiceBuilder
 and it will returns the PHP objects representing the given NFe.
 
-    <?php
-
-    XmlInvoiceBuilder::::create(
-        file_get_contents('path/to//my/invoice.xml')
-    );
-    // returns an instance of NFeEasy\Invoice
+```php
+XmlInvoiceBuilder::::create(
+    file_get_contents('path/to//my/invoice.xml')
+); // returns an instance of NFeEasy\Invoice
+```
 
 ## Domain Objects
 
