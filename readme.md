@@ -27,7 +27,8 @@ require_once('/path/to/nfeasy/init.php');
 ```
 
 You will also need to download the **NfeEasy PHP 5.6** php dependencies and 
-autoload then manually. See `composer.json` to see **NfeEasy PHP 5.6** dependencies. 
+autoload then manually. See `composer.json` to see **NfeEasy PHP 5.6** 
+dependencies. 
 
 ### How to use
 
