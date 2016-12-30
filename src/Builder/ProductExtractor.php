@@ -12,7 +12,7 @@ trait ProductExtractor
         $products = [];
         foreach ($element->getElementsByTagName('det') as $det) {
             $products[] = Product::create(
-                $this->extractNodeElement('prod', $det)
+                $this->extractNodeElementByTagName('prod', $det)
             );
         }
 

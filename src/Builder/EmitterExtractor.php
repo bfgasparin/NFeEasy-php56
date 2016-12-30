@@ -11,11 +11,11 @@ trait EmitterExtractor
     protected function extractEmitter(DOMElement $element)
     {
         $emitter = Emitter::create(
-            $this->extractNodeElement('emit', $element)
+            $this->extractNodeElementByTagName('emit', $element)
         );
 
         $emitter->address = Address::create(
-            $this->extractNodeElement('enderEmit', $element)
+            $this->extractNodeElementByTagName('enderEmit', $element)
         );
 
         return $emitter;

@@ -20,6 +20,7 @@ class InvoiceTest extends TestCase
     {
         $invoice = Invoice::create($this->invoiceAttributes);
         $this->invoiceAttributes['products'] = [];
+        $this->invoiceAttributes['payments'] = [];
         $this->assertEquals(
             $this->invoiceAttributes,
             $invoice->toArray()
@@ -32,6 +33,7 @@ class InvoiceTest extends TestCase
         $invoice = Invoice::create($this->invoiceAttributes);
 
         $this->invoiceAttributes['products'] = [];
+        $this->invoiceAttributes['payments'] = [];
         $this->assertEquals(
             json_encode($this->invoiceAttributes),
             $invoice->toJson()

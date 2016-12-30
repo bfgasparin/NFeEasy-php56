@@ -11,7 +11,7 @@ use NFeEasy\Receiver;
 class XmlInvoiceBuilder implements InvoiceBuilder
 {
     use AdditionalInfoExtractor, EmitterExtractor,
-        NodeExtractor, ProductExtractor, ReceiverExtractor
+        NodeExtractor, ProductExtractor, ReceiverExtractor, PaymentExtractor
     ;
 
     private $loader;
@@ -28,11 +28,14 @@ class XmlInvoiceBuilder implements InvoiceBuilder
 
         //Create the invoice instance
         $invoice = Invoice::create(
-            $this->extractNodeElement('ide', $rootNode)
+            $this->extractNodeElementByTagName('ide', $rootNode)
         );
 
         // Add the Invoice products
         $invoice->products = $this->extractProducts($rootNode);
+
+        // Add the Invoice payments
+        $invoice->payments = $this->extractPayments($rootNode);
 
         // Add the Additional Information
         $invoice->additionalInfo = $this->extractAdditionalInfo($rootNode);

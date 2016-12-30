@@ -122,6 +122,23 @@ trait FakeData
                 'nFCI' => '6DC88C92-3FA3-48F8-898B-B3776242F381',
             ],
         ],
+		'payments' => [
+			[
+				'nDup' => '4900004204',
+				'dVenc' => '2016-12-19',
+				'vDup' => '4320.78',
+			],
+			[
+				'nDup' => '4900004204',
+				'dVenc' => '2017-01-18',
+				'vDup' => '4320.78',
+			],
+			[
+				'nDup' => '4900004204',
+				'dVenc' => '2017-02-17',
+				'vDup' => '4320.91',
+			],
+		],
         'additionalInfo' => 'BASE DE CALCULO ICMS COM REDUCAO DO PIS / COFINS CONF. CONVENIO 34/2006. Pedido do Cliente: BRC16EY7KF Pedido SAP: 1034528915 Documento de Entrega: 0703773648 Documento de Embarque: 0011541505 Volume: 0.325 Fatura: 4900004204 Cliente: 2002226686 Valor A Ser Pago Por Esta Nota: 12962.46',
     ];
 }

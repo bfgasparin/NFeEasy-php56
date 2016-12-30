@@ -11,11 +11,11 @@ trait ReceiverExtractor
     protected function extractReceiver(DOMElement $element)
     {
         $receiver = Receiver::create(
-            $this->extractNodeElement('dest', $element)
+            $this->extractNodeElementByTagName('dest', $element)
         );
 
         $receiver->address = Address::create(
-            $this->extractNodeElement('enderDest', $element)
+            $this->extractNodeElementByTagName('enderDest', $element)
         );
 
         return $receiver;
